@@ -130,7 +130,7 @@ public class LoginFunction extends BmfTestCommon {
 					if (btn.isDisplayed() && btn.getText().toLowerCase().contains("log out")) {
 						System.out.println("Already Loged In .Log out button clicking..");
 						btn.click();
-
+						break;
 					}
 				}
 				closeMenu.click();
