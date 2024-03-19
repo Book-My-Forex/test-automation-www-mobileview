@@ -1,4 +1,4 @@
-Feature: verify Mobile order flow
+Feature: verify Mobile all order flow
 
   ################################################################################
   #-for sim add on the travel date should more than 1 week and less than 30 days #
@@ -55,7 +55,7 @@ Feature: verify Mobile order flow
       | 3 year ITR Bank Statement                |
     And user selected or added new address and proceed to Review Screen
     And to verify Service charge & paid from given bank Details
-      | payMode     | bankName      | accountNumber  | ifscCode    | remark             | upiId               |
+      | payMode     | bankName  | accountNumber  | ifscCode    | remark             | upiId               |
       | Net Banking | HDFC Bank | 50100047217264 | HDFC0001409 | Tested by Automate | d.biswajeetdas3@ibl |
     Then payment done via Razorpay
     Then user redirected to Order confirmation screen & get Order Reference Number
@@ -79,7 +79,7 @@ Feature: verify Mobile order flow
       | Passport Back Page  |
     And user selected or added new address and proceed to Review Screen
     And to verify Service charge & paid from given bank Details
-      | payMode    | bankName      | accountNumber  | ifscCode    | remark             | upiId               |
+      | payMode    | bankName  | accountNumber  | ifscCode    | remark             | upiId               |
       | Debit Card | HDFC Bank | 55550118613064 | FDRL0005555 | Tested by Automate | d.biswajeetdas3@ibl |
     Then payment done via Razorpay
     Then user redirected to Order confirmation screen & get Order Reference Number
@@ -157,7 +157,7 @@ Feature: verify Mobile order flow
       | device |
       | mobile |
     When User enters correct credentials for mobile view 'amit.panwar@yopmail.com', '9555812345' & 'Bmf@1234567'
- And User given all below details to buy/sell currency/card
+    And User given all below details to buy/sell currency/card
       | city  | currency | productType    | forexAmount | orderType |
       | Delhi | Euro     | Currency Notes |          30 | Buy       |
     Then User able to buy after given all details
@@ -183,11 +183,10 @@ Feature: verify Mobile order flow
       | Valid Visa (If not on arrival)                         |
     And user selected or added new address and proceed to Review Screen
     And to verify Service charge & paid from given bank Details
-      | payMode     | bankName      | accountNumber  | ifscCode    | remark             | upiId               |
+      | payMode     | bankName  | accountNumber  | ifscCode    | remark             | upiId               |
       | Net banking | HDFC Bank | 55550118613064 | FDRL0005555 | Tested by Automate | d.biswajeetdas3@ibl |
     Then payment done via Razorpay
     Then user redirected to Order confirmation screen & get Order Reference Number
-
 
   @uatmwww
   Scenario: 7 to verify mview tat info and partial(unload)flow
@@ -209,12 +208,12 @@ Feature: verify Mobile order flow
       | Passport Back Page  |
     And to verify tat Message for required section
     And to verify Service charge & paid from given bank Details
-      | payMode    | bankName      | accountNumber  | ifscCode    | remark             | upiId               |
+      | payMode    | bankName  | accountNumber  | ifscCode    | remark             | upiId               |
       | Debit Card | HDFC Bank | 55550118613064 | FDRL0005555 | Tested by Automate | d.biswajeetdas3@ibl |
     Then user redirected to Order confirmation screen & get Order Reference Number
     And to verify tat Message for required section
 
-    @uatmwww
+  @uatmwww
   Scenario: 8 Verify mview leftmenu TCS calculation for order buy card ignoring sim add on charge(Education)
     Given User opens mobile version BookMyForex url is 'bookmyforex.com/'
       | device |
@@ -242,7 +241,7 @@ Feature: verify Mobile order flow
       | 3 year ITR Bank Statement                |
     And user selected or added new address and proceed to Review Screen
     And to verify Service charge & paid from given bank Details
-      | payMode     | bankName      | accountNumber  | ifscCode    | remark             | upiId               |
+      | payMode     | bankName  | accountNumber  | ifscCode    | remark             | upiId               |
       | Net Banking | HDFC Bank | 50100047217264 | HDFC0001409 | Tested by Automate | d.biswajeetdas3@ibl |
     Then payment done via Razorpay
     Then user redirected to Order confirmation screen & get Order Reference Number
@@ -253,7 +252,7 @@ Feature: verify Mobile order flow
       | device |
       | mobile |
     When User enters correct credentials for mobile view 'test.uat@bookmyforex.com', '7080234123' & 'Bmf@123456'
-        When click on mobile view 'forex sell' from left menu order
+    When click on mobile view 'forex sell' from left menu order
     And User given all below details to buy/sell currency/card
       | city  | currency | forexAmount | orderType | productType    |
       | Delhi | Euro     |          10 | sell      | Currency Notes |
@@ -267,7 +266,7 @@ Feature: verify Mobile order flow
       | Passport Back Page  |
     And user selected or added new address and proceed to Review Screen
     And to verify Service charge & paid from given bank Details
-      | payMode    | bankName      | accountNumber  | ifscCode    | remark             | upiId               |
+      | payMode    | bankName  | accountNumber  | ifscCode    | remark             | upiId               |
       | Debit Card | HDFC Bank | 55550118613064 | FDRL0005555 | Tested by Automate | d.biswajeetdas3@ibl |
     Then payment done via Razorpay
     Then user redirected to Order confirmation screen & get Order Reference Number
@@ -278,7 +277,7 @@ Feature: verify Mobile order flow
       | device |
       | mobile |
     When User enters correct credentials for mobile view 'test.uat@bookmyforex.com', '7080234123' & 'Bmf@123456'
-        When click on mobile view 'money transfer' from left menu order
+    When click on mobile view 'money transfer' from left menu order
     And User enters Money Transfer/Remit Order details
       | city  | country        | productType   | forexAmount | currency      | orderType  |
       | Delhi | United Kingdom | Wire Transfer |        8500 | British Pound | Remittance |
@@ -348,7 +347,7 @@ Feature: verify Mobile order flow
       | mobile |
     When User enters correct credentials for mobile view 'amit.panwar@yopmail.com', '9555812345' & 'Bmf@1234567'
     When click on mobile view 'forex buy' from left menu order
- And User given all below details to buy/sell currency/card
+    And User given all below details to buy/sell currency/card
       | city  | currency | productType    | forexAmount | orderType |
       | Delhi | Euro     | Currency Notes |          30 | Buy       |
     Then User able to buy after given all details
@@ -374,11 +373,10 @@ Feature: verify Mobile order flow
       | Valid Visa (If not on arrival)                         |
     And user selected or added new address and proceed to Review Screen
     And to verify Service charge & paid from given bank Details
-      | payMode     | bankName      | accountNumber  | ifscCode    | remark             | upiId               |
+      | payMode     | bankName  | accountNumber  | ifscCode    | remark             | upiId               |
       | Net banking | HDFC Bank | 55550118613064 | FDRL0005555 | Tested by Automate | d.biswajeetdas3@ibl |
     Then payment done via Razorpay
     Then user redirected to Order confirmation screen & get Order Reference Number
-
 
   @uatmwww
   Scenario: 13 to verify mview leftmenu partial(unload)flow
@@ -400,10 +398,9 @@ Feature: verify Mobile order flow
       | Passport Back Page  |
     And to verify tat Message for required section
     And to verify Service charge & paid from given bank Details
-      | payMode    | bankName      | accountNumber  | ifscCode    | remark             | upiId               |
+      | payMode    | bankName  | accountNumber  | ifscCode    | remark             | upiId               |
       | Debit Card | HDFC Bank | 55550118613064 | FDRL0005555 | Tested by Automate | d.biswajeetdas3@ibl |
     Then user redirected to Order confirmation screen & get Order Reference Number
-
 
   #--------------------------------------------prod feature file is below----------------------------#
   @prodmwww
@@ -457,7 +454,7 @@ Feature: verify Mobile order flow
       | 3 year ITR Bank Statement                |
     And user selected or added new address and proceed to Review Screen
     And to verify Service charge & paid from given bank Details
-      | payMode     | bankName      | accountNumber  | ifscCode    | remark             | upiId               |
+      | payMode     | bankName  | accountNumber  | ifscCode    | remark             | upiId               |
       | Net Banking | HDFC Bank | 50100047217264 | HDFC0001409 | Tested by Automate | d.biswajeetdas3@ibl |
     Then payment done via Razorpay
 
@@ -480,7 +477,7 @@ Feature: verify Mobile order flow
       | Passport Back Page  |
     And user selected or added new address and proceed to Review Screen
     And to verify Service charge & paid from given bank Details
-      | payMode    | bankName      | accountNumber  | ifscCode    | remark             | upiId               |
+      | payMode    | bankName  | accountNumber  | ifscCode    | remark             | upiId               |
       | Debit Card | HDFC Bank | 55550118613064 | FDRL0005555 | Tested by Automate | d.biswajeetdas3@ibl |
     Then payment done via Razorpay
 
