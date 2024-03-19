@@ -1527,7 +1527,7 @@ public class BmfTestCommon {
 		else
 			Assert.assertTrue("Pro Tip should be shownn for order-" + orderType.toUpperCase(), payDisclaimTipShown);
 	}
-	
+
 	public void addPrdouct() throws Throwable {
 		addProductList = getDriver().findElements(ElementBuy.ADD_PRODUCT.get());
 		if (addProductList.size() == 0 && orderType.contains("reload"))
@@ -1547,6 +1547,7 @@ public class BmfTestCommon {
 			}
 		}
 	}
+
 	public static void Location(String cityName) throws Throwable {
 		if (device.contains("mobile")) {
 			WebElement locationBtn = getDriver().findElement(ElementMobileBuy.M_LOCATION_CLICK.get());
@@ -1559,7 +1560,7 @@ public class BmfTestCommon {
 
 			if (device.contains("mobile")) {
 				listSelectCity = getDriver().findElements(ElementMobileBuy.M_LOCATION_SELECT.get());
-		
+
 			} else if (device.contains("desktop")) {
 
 				if (orderType.toLowerCase().contains("buy") || orderType.toLowerCase().contains("sell")) {
@@ -1569,10 +1570,15 @@ public class BmfTestCommon {
 				}
 
 			}
-			if ((!orderType.contains("reload") || device.contains("mobile")) && listSelectCity.size() > 0
+			Select city;
+			if (device.contains("mobile") && listSelectCity.size() > 0) {
+				cityShown = true;
+				city = new Select(listSelectCity.get(0));
+				city.selectByVisibleText(cityName);
+			} else if ((!orderType.contains("reload") || device.contains("mobile")) && listSelectCity.size() > 0
 					&& listSelectCity.get(0).isDisplayed()) {
 				cityShown = true;
-				Select city = new Select(listSelectCity.get(0));
+				city = new Select(listSelectCity.get(0));
 				city.selectByVisibleText(cityName);
 				break;
 			} else if (i == 2) {
