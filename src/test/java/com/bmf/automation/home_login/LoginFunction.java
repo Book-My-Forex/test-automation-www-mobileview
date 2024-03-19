@@ -121,7 +121,8 @@ public class LoginFunction extends BmfTestCommon {
 				getDriver().navigate().refresh();
 				Thread.sleep(1200);
 				getDriver().findElement(ElementMobileBuy.M_LEFT_MENU.get()).click();
-				fwait.until(ExpectedConditions.visibilityOfElementLocated(ElementMobileBuy.M_CLOSE_MENU.get()));
+				WebElement closeMenu = fwait
+						.until(ExpectedConditions.visibilityOfElementLocated(ElementMobileBuy.M_CLOSE_MENU.get()));
 				List<WebElement> listLoginCommom = getDriver().findElements(ElementMobileBuy.M_LOGIN_COMMON.get());
 
 				for (WebElement btn : listLoginCommom) {
@@ -132,6 +133,7 @@ public class LoginFunction extends BmfTestCommon {
 
 					}
 				}
+				closeMenu.click();
 				break;
 			}
 
@@ -429,7 +431,8 @@ public class LoginFunction extends BmfTestCommon {
 	@After
 	public void takeSnapShot(Scenario testcase) throws Exception {
 		File DestFile = null;
-		if (actualHeaderName.toLowerCase().contains("home") && ( orderType==null ||  !orderType.toLowerCase().contains("signup")))
+		if (actualHeaderName.toLowerCase().contains("home")
+				&& (orderType == null || !orderType.toLowerCase().contains("signup")))
 			orderType = "oder type is not selected";
 
 		for (int i = 0; i < 3; i++) {
