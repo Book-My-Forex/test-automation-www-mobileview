@@ -96,7 +96,7 @@ public class LoginFunction extends BmfTestCommon {
 	@Given("^User opens mobile version BookMyForex url is '(.*)'$")
 	public void OpenMobBmf(String url, DataTable dt) throws Throwable {
 
-		Assert.assertTrue("in Test runner isMobileMode is false so mobiel can't chekced", TestRunner.isMobileMode);
+		Assert.assertTrue("in Test runner isMobileMode is false so mobile view can't chekced", TestRunner.isMobileMode);
 		TestRunner.isMobileMode = false;
 		cucumberDataTable = dt.asMaps(String.class, String.class);
 		device = cucumberDataTable.get(0).get("device").toLowerCase();

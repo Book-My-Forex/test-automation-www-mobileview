@@ -1559,7 +1559,7 @@ public class BmfTestCommon {
 
 			if (device.contains("mobile")) {
 				listSelectCity = getDriver().findElements(ElementMobileBuy.M_LOCATION_SELECT.get());
-				break;
+		
 			} else if (device.contains("desktop")) {
 
 				if (orderType.toLowerCase().contains("buy") || orderType.toLowerCase().contains("sell")) {
