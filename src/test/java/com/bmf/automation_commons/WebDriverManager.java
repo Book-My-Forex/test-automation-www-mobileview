@@ -3,7 +3,6 @@ package com.bmf.automation_commons;
 import com.bmf.automation.runner.TestRunner;
 import com.google.common.base.Joiner;
 
-
 import org.apache.commons.lang3.SystemUtils;
 import org.openqa.selenium.edge.EdgeDriver;
 
@@ -67,17 +66,18 @@ public class WebDriverManager {
 			// untrusted certificate
 
 			if (SystemUtils.IS_OS_LINUX) {
-			    cOption.addArguments("--headless");
-			    cOption.addArguments("--disable-dev-shm-usage"); //!!!should be enabled for Jenkins
-			    cOption.addArguments("--no-sandbox");
-			// this above required to switch new window in case of razorpay modal
+				cOption.addArguments("--headless");
+				cOption.addArguments("--disable-dev-shm-usage"); // !!!should be enabled for Jenkins
+				cOption.addArguments("--no-sandbox");
+				// this above required to switch new window in case of razorpay modal
 			}
-			if (TestRunner.isMobileMode ) {
+			if (TestRunner.isMobileMode) {
 
 				Map<String, Object> mobileEmulation = new HashMap<>();
 				mobileEmulation.put("deviceName", "iPhone X");
 				cOption.setExperimentalOption("mobileEmulation", mobileEmulation);
-
+				// Set the page scale to 1 to fit content to the window
+				cOption.addArguments("--force-device-scale-factor=1");
 			} else {
 				cOption.addArguments("--window-size=1920,1080");
 			}
